@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Pengaduan Sarana Sekolah</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ HALAMAN LOGIN ============ -->
+<section id="viewLogin" class="view view-login">
+  <div class="login-bg-blob blob-1"></div>
+  <div class="login-bg-blob blob-2"></div>
+
+  <div class="login-card">
+    <div class="login-logo-wrap">
+      <img src="assets/logo.png" alt="Logo Sekolah" class="login-logo">
+    </div>
+    <h1 class="login-title">Pengaduan Sarana Sekolah</h1>
+    <p class="login-subtitle">Panel Admin — SLB Marsudi Putra 3 Sanden</p>
+
+    <form id="formLogin" class="login-form">
+      <label class="field">
+        <span class="field-label">Username</span>
+        <input type="text" id="inputUsername" autocomplete="username" required>
+      </label>
+      <label class="field">
+        <span class="field-label">Password</span>
+        <input type="password" id="inputPassword" autocomplete="current-password" required>
+      </label>
+      <p id="loginError" class="form-error" hidden></p>
+      <button type="submit" id="btnLogin" class="btn btn-primary btn-block">
+        <span class="btn-label">Masuk</span>
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ HALAMAN DASHBOARD ============ -->
+<section id="viewDashboard" class="view view-dashboard" hidden>
+
+  <header class="topbar">
+    <div class="topbar-brand">
+      <img src="assets/logo.png" alt="Logo" class="topbar-logo">
+      <div>
+        <div class="topbar-title">Pengaduan Sarana Sekolah</div>
+        <div class="topbar-subtitle">SLB Marsudi Putra 3 Sanden — Panel Admin</div>
+      </div>
+    </div>
+    <button id="btnLogout" class="btn btn-ghost">Keluar</button>
+  </header>
+
+  <main class="dashboard-main">
+
+    <!-- Ringkasan status -->
+    <div class="summary-row" id="summaryRow">
+      <div class="summary-card summary-menunggu">
+        <div class="summary-value" id="countMenunggu">0</div>
+        <div class="summary-label">Menunggu</div>
+      </div>
+      <div class="summary-card summary-proses">
+        <div class="summary-value" id="countProses">0</div>
+        <div class="summary-label">Diproses</div>
+      </div>
+      <div class="summary-card summary-selesai">
+        <div class="summary-value" id="countSelesai">0</div>
+        <div class="summary-label">Selesai</div>
+      </div>
+      <div class="summary-card summary-total">
+        <div class="summary-value" id="countTotal">0</div>
+        <div class="summary-label">Total Aspirasi</div>
+      </div>
+    </div>
+
+    <!-- Filter -->
+    <div class="filter-bar">
+      <input type="text" id="filterNis" class="filter-input" placeholder="Cari berdasarkan NIS...">
+
+      <select id="filterKategori" class="filter-select">
+        <option value="">Semua Kategori</option>
+      </select>
+
+      <select id="filterStatus" class="filter-select">
+        <option value="">Semua Status</option>
+        <option value="Menunggu">Menunggu</option>
+        <option value="Proses">Diproses</option>
+        <option value="Selesai">Selesai</option>
+      </select>
+
+      <input type="date" id="filterTanggal" class="filter-input">
+
+      <button id="btnResetFilter" class="btn btn-outline">Reset</button>
+    </div>
+
+    <!-- List aspirasi -->
+    <div id="listAspirasi" class="list-aspirasi">
+      <div class="empty-state" id="emptyState" hidden>
+        <div class="empty-icon">📭</div>
+        <div class="empty-title">Belum ada aspirasi</div>
+        <div class="empty-text">Aspirasi yang dikirim siswa akan muncul di sini.</div>
+      </div>
+    </div>
+
+  </main>
+</section>
+
+<!-- ============ MODAL DETAIL / UMPAN BALIK ============ -->
+<div id="modalOverlay" class="modal-overlay" hidden>
+  <div class="modal-card">
+    <div class="modal-header">
+      <h2 class="modal-title">Detail & Umpan Balik</h2>
+      <button id="btnCloseModal" class="modal-close" aria-label="Tutup">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="detail-block">
+        <div class="detail-row"><span class="detail-label">Kategori</span><span id="detailKategori" class="detail-value"></span></div>
+        <div class="detail-row"><span class="detail-label">NIS Pelapor</span><span id="detailNis" class="detail-value"></span></div>
+        <div class="detail-row"><span class="detail-label">Lokasi</span><span id="detailLokasi" class="detail-value"></span></div>
+        <div class="detail-row"><span class="detail-label">Tanggal</span><span id="detailTanggal" class="detail-value"></span></div>
+      </div>
+
+      <div class="detail-ket">
+        <span class="detail-label">Keterangan</span>
+        <p id="detailKet" class="detail-ket-text"></p>
+      </div>
+
+      <div id="detailFotoWrap" class="detail-foto-wrap" hidden>
+        <span class="detail-label">Foto Bukti</span>
+        <img id="detailFoto" class="detail-foto" alt="Foto bukti pengaduan">
+      </div>
+
+      <label class="field">
+        <span class="field-label">Status Penyelesaian</span>
+        <select id="editStatus" class="field-select">
+          <option value="Menunggu">Menunggu</option>
+          <option value="Proses">Diproses</option>
+          <option value="Selesai">Selesai</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span class="field-label">Umpan Balik untuk Siswa</span>
+        <textarea id="editFeedback" rows="4" placeholder="Tuliskan progres perbaikan / tanggapan..."></textarea>
+      </label>
+
+      <p id="modalError" class="form-error" hidden></p>
+    </div>
+
+    <div class="modal-footer">
+      <button id="btnBatalModal" class="btn btn-outline">Batal</button>
+      <button id="btnSimpanModal" class="btn btn-primary">
+        <span class="btn-label">Simpan Perubahan</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Firebase SDK (compat, tanpa perlu proses build) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="js/firebase-config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
