@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "122902024930",
+    "firebase_url": "https://pengaduan-sarana-f7479-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "pengaduan-sarana-f7479",
+    "storage_bucket": "pengaduan-sarana-f7479.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122902024930:android:74ce143f56dd69da06c4bb",
+        "android_client_info": {
+          "package_name": "com.pengaduansarana.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYwxTYw7l3BFXhzTStmIwgoePMxYI17yA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
