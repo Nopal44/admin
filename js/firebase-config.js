@@ -17,12 +17,11 @@
 // =========================================================
 
 const firebaseConfig = {
-  apiKey: "GANTI_DENGAN_API_KEY_WEB_ANDA",
-  authDomain: "pengaduan-sarana-f7479.firebaseapp.com",
-  projectId: "pengaduan-sarana-f7479",
-  storageBucket: "pengaduan-sarana-f7479.firebasestorage.app",
-  messagingSenderId: "GANTI_DENGAN_SENDER_ID_ANDA",
-  appId: "GANTI_DENGAN_APP_ID_WEB_ANDA"
+ apiKey: 'AIzaSyAYwxTYw7l3BFXhzTStmIwgoePMxYI17yA',
+    appId: '1:122902024930:android:74ce143f56dd69da06c4bb',
+    messagingSenderId: '122902024930',
+    projectId: 'pengaduan-sarana-f7479',
+    storageBucket: 'pengaduan-sarana-f7479.firebasestorage.app',
 };
 
 firebase.initializeApp(firebaseConfig);
