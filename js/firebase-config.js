@@ -17,7 +17,7 @@
 // =========================================================
 
 const firebaseConfig = {
- const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyDMHdeZ_MxLpsXvAv3I2wG6c2Lwts10J_0",
   authDomain: "pengaduan-sarana-f7479.firebaseapp.com",
   databaseURL: "https://pengaduan-sarana-f7479-default-rtdb.asia-southeast1.firebasedatabase.app",
