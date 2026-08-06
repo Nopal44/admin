@@ -17,11 +17,14 @@
 // =========================================================
 
 const firebaseConfig = {
-   apiKey: "AIzaSyDMHdeZ_MxLpsXvAv3I2wG6c2Lwts10J_0",
+ const firebaseConfig = {
+  apiKey: "AIzaSyDMHdeZ_MxLpsXvAv3I2wG6c2Lwts10J_0",
   authDomain: "pengaduan-sarana-f7479.firebaseapp.com",
   databaseURL: "https://pengaduan-sarana-f7479-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "pengaduan-sarana-f7479",
   storageBucket: "pengaduan-sarana-f7479.firebasestorage.app",
+  messagingSenderId: "122902024930",
+  appId: "1:122902024930:web:e2a728b6efaf2d6806c4bb"
 };
 
 firebase.initializeApp(firebaseConfig);
