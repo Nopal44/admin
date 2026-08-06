@@ -17,10 +17,11 @@
 // =========================================================
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAYwxTYw7l3BFXhzTStmIwgoePMxYI17yA',
+ apiKey: 'AIzaSyAYwxTYw7l3BFXhzTStmIwgoePMxYI17yA',
     appId: '1:122902024930:android:74ce143f56dd69da06c4bb',
     messagingSenderId: '122902024930',
     projectId: 'pengaduan-sarana-f7479',
     storageBucket: 'pengaduan-sarana-f7479.firebasestorage.app',
+};
 
 firebase.initializeApp(firebaseConfig);
